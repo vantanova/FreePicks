@@ -2,7 +2,8 @@ import Head from "next/head";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import App from "@/components/Navbarf/Navbar";
+import Navbar from "@/components/Navbar/Navbar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,7 +27,24 @@ export default function Home() {
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
-        <App />
+        <Navbar />
+        <div className="w-full grid grid-cols-20 gap-10">
+          {/* Spacer */}
+          <div className="col-span-1" />
+
+          <div className="col-span-4 justify-self-end">
+            <Sidebar />
+          </div>
+
+          {/* Main */}
+          <div className="col-span-10">Main</div>
+
+          {/* Bet Slip */}
+          <div className="col-span-4 justify-self-start">Bet Slip</div>
+
+          {/* Spacer */}
+          <div className="col-span-1" />
+        </div>
       </div>
     </>
   );

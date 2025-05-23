@@ -1,9 +1,20 @@
-import { Navbar, NavbarContent, NavbarItem, Link, Button } from "@heroui/react";
+import {
+  Navbar as HeroUINavbar,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+  // NavbarBrand,
+} from "@heroui/react";
 
-export default function App() {
+function Navbar() {
   return (
-    <Navbar className="bg-neutral-800 text-white" height={"5rem"}>
-      <NavbarContent className="sm:flex gap-12 ">
+    <HeroUINavbar className=" text-white" height={"5rem"}>
+      <NavbarContent justify="start">
+        <p className=" font-bold text-inherit text-2xl z-99">FreePicks</p>
+      </NavbarContent>
+
+      <NavbarContent className="sm:flex gap-12">
         <NavbarItem isActive={true}>
           <Link color="primary" href="#">
             Home
@@ -30,6 +41,8 @@ export default function App() {
           </Button>
         </NavbarItem>
       </NavbarContent>
-    </Navbar>
+    </HeroUINavbar>
   );
 }
+
+export default Navbar;
