@@ -2,8 +2,13 @@ import Head from "next/head";
 
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+
+import Main from "@/layouts/Main/Main";
 import Navbar from "@/components/Navbar/Navbar";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import Sidebar from "@/layouts/Sidebar/Sidebar";
+import BetSlip from "@/components/PickSlip/PickSlip";
+import Footer from "@/layouts/Footer/Footer";
+import ContentLayout from "@/components/ContentLayout/Content";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +20,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -28,24 +33,17 @@ export default function Home() {
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
         <Navbar />
-        <div className="w-full grid grid-cols-20 gap-10">
-          {/* Spacer */}
-          <div className="col-span-1" />
 
-          <div className="col-span-4 justify-self-end">
-            <Sidebar />
-          </div>
-
-          {/* Main */}
-          <div className="col-span-10">Main</div>
-
-          {/* Bet Slip */}
-          <div className="col-span-4 justify-self-start">Bet Slip</div>
-
-          {/* Spacer */}
-          <div className="col-span-1" />
-        </div>
+        <ContentLayout
+          containerStyles="w-full h-full mt-8"
+          contentLeft={<Sidebar />}
+          contentCenter={<Main />}
+          contentRight={<BetSlip />}
+        />
       </div>
+      <Footer />
     </>
   );
 }
+
+export default Home;

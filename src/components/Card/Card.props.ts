@@ -5,4 +5,5 @@ export interface CardProps {
   children: ReactNode;
   className?: string | undefined;
   footer?: ReactNode;
+  isBlurred?: boolean;
 }

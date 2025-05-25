@@ -1,47 +1,49 @@
-import {
-  Navbar as HeroUINavbar,
-  NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
-  // NavbarBrand,
-} from "@heroui/react";
+import { Link, Button } from "@heroui/react";
+import ContentLayout from "../ContentLayout/Content";
 
 function Navbar() {
   return (
-    <HeroUINavbar className=" text-white" height={"5rem"}>
-      <NavbarContent justify="start">
-        <p className=" font-bold text-inherit text-2xl z-99">FreePicks</p>
-      </NavbarContent>
+    <div className="h-16 bg-background flex items-center">
+      <ContentLayout
+        containerStyles="w-full"
+        contentLeft={
+          <p className="h-full flex items-center font-bold text-inherit text-2xl min-w-[150px] max-w-[200px]">
+            FreePicks
+          </p>
+        }
+        contentCenter={
+          <div className="h-full flex gap-10">
+            <Link color="primary" href="#">
+              Home
+            </Link>
 
-      <NavbarContent className="sm:flex gap-12">
-        <NavbarItem isActive={true}>
-          <Link color="primary" href="#">
-            Home
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link aria-current="page" href="#">
-            My Bets
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Live
-          </Link>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
-    </HeroUINavbar>
+            <Link color="foreground" href="picks">
+              My Picks
+            </Link>
+
+            <Link color="foreground" href="#">
+              Live
+            </Link>
+          </div>
+        }
+        contentRight={
+          <div className="flex justify-center items-center gap-4">
+            <Link className="text-foreground" href="#">
+              Login
+            </Link>
+            <Button
+              as={Link}
+              color="primary"
+              className="text-foreground"
+              href="#"
+              variant="flat"
+            >
+              Sign Up
+            </Button>
+          </div>
+        }
+      />
+    </div>
   );
 }
 
